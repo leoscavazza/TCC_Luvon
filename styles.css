@@ -1,0 +1,219 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+header {
+    background-color: #7a1a1a;
+    height: 80px; /* Altura fixa */
+    padding: 0 20px;
+    color: #fff;
+}
+
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Centraliza verticalmente */
+    height: 100%;
+}
+
+.logo {
+    height: 125px;
+    vertical-align: middle; /* Alinha verticalmente a logo no meio */
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.cart img {
+    width: 150px;
+}
+
+.banner {
+    text-align: center;
+    margin: 20px 0;
+    position: relative;
+}
+
+.banner img {
+    max-height: 300px;
+    object-fit: cover;
+}
+
+.cta {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #7a1a1a;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.products {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+}
+
+.product-1 {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    width: 200px;
+    text-align: center;
+    transition: box-shadow 0.3s ease;
+}
+.product-1 img {
+    width: 150px;   
+}
+/* .product-2 {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    width: 200px;
+    text-align: center;
+    transition: box-shadow 0.3s ease;
+}
+.product-3 {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    width: 200px;
+    text-align: center;
+    transition: box-shadow 0.3s ease;
+} */
+
+.product:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 10px;
+}
+
+.product h3 {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.product p {
+    font-size: 18px;
+    color: #7a1a1a;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.product button {
+    background-color: #7a1a1a;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.product button:hover {
+    background-color: #931e1e;
+}
+
+ footer {
+    background-color: #71001C;
+    color: #fff;
+    padding: 20px 0;
+} 
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-content ul li a {
+    display: block; /* Torna o link um elemento de bloco */
+    margin-bottom: 20px; /* Adiciona espaçamento vertical entre os itens */
+    color: #fff;
+    text-decoration: none; 
+    margin-top: 25px;
+}
+
+.footer-content ul img {
+    width: 350px;
+    margin: 0 10px;
+    position: relative;
+    left: 250px;
+    top: -100px;
+}
+
+.metodo-pagamento li {
+    padding: 30px;   
+    list-style-type: none; /* Remove a bolinha */ 
+    position: relative;
+    right: 18px;
+    font-size: 20px;
+    top: 50px;
+}
+
+.metodo-pagamento img {
+    width: 600px;
+    margin: 0 10px;  
+    margin-bottom: 170px;  
+    position: relative;
+    top: 50px;
+}
+
+.social {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.social img {
+    width: 50px;
+    margin: 0 10px;
+    position: relative;
+    left: 450px;
+    top: -260px;
+}
+
+.logo-e-social img{
+    width: 60px;
+    position: relative;
+    left: 1000px;
+} 
+
+.logo-footer {
+    width: 60px;
+    position: relative;
+    right: 600px;
+}
