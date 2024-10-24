@@ -10,57 +10,94 @@
 <body>
     <header>
         <div class="top-bar">
-            <img src="Imagens/logo.png" alt="Luvon Vinhos" class="logo">
+            <!-- Logo alinhado à esquerda -->
+            <div class="logo-container">
+                <img src="Imagens/logo.png" alt="Logo" class="logo">
+            </div>
+    
+            <!-- Menu de navegação -->
             <nav>
                 <ul>
-                    <li><a href="#">Vinhos</a></li>
-                    <li><a href="#">Países</a></li>
-                    <li><a href="#">Vinícolas</a></li>
-                    <li><a href="#">Kits</a></li>
+                    <li><a href="#">VINHOS</a></li>
+                    <li><a href="#">PAÍSES</a></li>
+                    <li><a href="#">VINÍCOLAS</a></li>
+                    <li><a href="#">KITS</a></li>
                 </ul>
             </nav>
+    
+            <!-- Barra de pesquisa -->
+            <div class="search-bar">
+                <input type="text" placeholder="Buscar vinhos...">
+                <button type="submit">
+                    <img src="Imagens/Lupa.png" alt="Lupa">
+                </button>
+            </div>
+    
+            <!-- Carrinho / Login -->
             <div class="cart">
-                <img src="Imagens/Olá! Faça seu login.png" alt="Olá! Faça seu login.png">
+                <img src="Imagens/Olá! Faça seu login.png" alt="Login">
             </div>
         </div>
-    </header>
+    </header>    
+    
+    
+    <div class="linha-horizontal"></div>
+    
+    <div class="carousel">
+        <div class="carousel-images" id="carousel-images">
+            <img src="Imagens/Banner_1.png" alt="Imagem 1">
+            <img src="Imagens/Promoção de natal.png" alt="Imagem 2">
+            <img src="Imagens/img3.jpg" alt="Imagem 3">
+        </div>
 
-    <section class="banner">
-        <img src="Imagens/Banner_1.png" alt="O Sabor da Tradição em Cada Taça">
-    </section>
+        <!-- Botões de navegação -->
+        <button class="prev">&#10094;</button>
+        <button class="next">&#10095;</button>
 
+        <!-- Indicadores (bolinhas) -->
+        <div class="carousel-indicators" id="carousel-indicators"></div>
+
+        <script src="javascript.js"></script> <!-- Aqui está o link para o JS -->
+
+    </div>
+
+   
     <section class="products">
-        <div class="product-1">
+        <div class="product">
             <img src="Imagens/Quebrada de las Flechas Reserva Malbec 2015.png" alt="Quebrada de las Flechas Reserva Malbec 2015">
             <h3>Quebrada de las Flechas Reserva Malbec 2015</h3>
             <p>R$185,00</p>
             <button>Comprar</button>
         </div>
 
-        <!-- <div class="product-2">
+        <div class="product">
             <img src="Imagens/Lecco Roble 2016 Ribera del Duero.png" alt="Lecco Roble 2016 Ribera del Duero">
             <h3>Lecco Roble 2016 Ribera del Duero</h3>
             <p>R$175,00</p>
             <button>Comprar</button>
         </div>
 
-        <div class="product-3">
+        <div class="product">
             <img src="Imagens/Alma M Champenoise Brut.png" alt="Alma M Champenoise Brut">
-            <h3>Alma M Champenoise Brut</h3>
+            <h3>Alma M Champenoise <br>Brut 
+                <br> 
+            </h3>
             <p>R$185,00</p>
             <button>Comprar</button>
-        </div> -->
+        </div>
+    </section>
 
-        <!-- <div class="product">
+    <section class="products">
+        <div class="product">
             <img src="Imagens/Relais Du Marquis 2016 Margaux.png" alt="Relais Du Marquis 2016 Margaux">
-            <h3>Relais Du Marquis 2016 Margaux</h3>
+            <h3>Relais Du Marquis 2016 <br> Margaux</h3>
             <p>R$589,00</p>
             <button>Comprar</button>
         </div>
 
         <div class="product">
             <img src="Imagens/Quinta do Vedo Vintage 2003.png" alt="Quinta de Vedo Vintage 2003">
-            <h3>Quinta de Vedo Vintage 2003</h3>
+            <h3>Quinta de Vedo Vintage <br> 2003</h3>
             <p>R$789,00</p>
             <button>Comprar</button>
         </div>
@@ -70,8 +107,8 @@
             <h3>Apollonio Terragnolo Primitivo Salento 2016</h3>
             <p>R$279,00</p>
             <button>Comprar</button>
-        </div> -->
     </section>
+
 
     <footer>
         <div class="footer-content">
@@ -89,15 +126,14 @@
             </div>
         </div>
         <div class="logo-e-social">
-            <img src="Imagens/logo.png" alt="logo" class="logo-footer">
             <img src="Imagens/twitter.png" alt="Twitter">
             <img src="Imagens/facebook.png" alt="facebook">
             <img src="Imagens/instagram.png" alt="instagram">
         </div>
         <div class="direitos">
-            <li>A venda de bebidas alcoólicas é proibida para menores de 18 anos. Aprecie com moderação. Se beber, não dirija.
+            <li>A venda de bebidas alcoólicas é proibida para menores de 18 anos. Aprecie com moderação. Se beber, não dirija. <br>
 
-                © 2024. E-vino Comércio de Vinhos S.A. - CNPJ: 17.392.519/0001-65. Bela Cintra, 986 - Consolação, São Paulo - SP.
+                © 2024. E-vino Comércio de Vinhos S.A. - CNPJ: 17.392.519/0001-65. Bela Cintra, 986 - Consolação, São Paulo - SP. <br>
                 
                 Todos os direitos reservados.</li>
         </div>
