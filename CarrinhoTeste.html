@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho de Compras</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h2 {
+            font-size: 24px;
+            color: #333;
+        }
+        .steps {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .steps div {
+            display: flex;
+            align-items: center;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .steps div.active {
+            color: #71001C;
+        }
+        .steps div span {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: #71001C;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 10px;
+        }
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .cart-item img {
+            width: 80px;
+            height: auto;
+            border-radius: 5px;
+        }
+        .cart-item-info {
+            display: flex;
+            flex-direction: column;
+        }
+        .cart-item-info h4 {
+            margin: 0;
+            font-size: 16px;
+            color: #333;
+        }
+        .cart-item-info .price {
+            font-size: 18px;
+            font-weight: bold;
+            color: #000000;
+        }
+        .cart-quantity {
+            display: flex;
+            align-items: center;
+        }
+        .cart-quantity button {
+            background-color: #71001C;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 18px;
+        }
+        .cart-quantity input {
+            width: 40px;
+            text-align: center;
+            font-size: 16px;
+            margin: 0 10px;
+        }
+        .summary {
+            background-color: #f5f5f5;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .summary h3 {
+            margin-top: 0;
+            font-size: 20px;
+        }
+        .summary div {
+            display: flex;
+            justify-content: space-between;
+            margin: 10px 0;
+        }
+        .summary button {
+            width: 100%;
+            padding: 15px;
+            background-color: #71001C;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .sidebar {
+            margin-left: 20px;
+            max-width: 300px;
+            display: flex;
+            flex-direction: column;
+        }
+        .sidebar button {
+            margin-top: 10px;
+            padding: 10px;
+            font-size: 14px;
+            color: white;
+            background-color: #71001C;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .remove-link {
+            color: red;
+            cursor: pointer;
+        }
+        .freight-container, .coupon-container {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #f5f5f5;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .freight-container h3, .coupon-container h3 {
+            margin-top: 0;
+        }
+        .freight-container label, .coupon-container label {
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            display: block;
+        }
+        .freight-container input, .coupon-container input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .freight-error, .coupon-error {
+            color: red;
+            font-size: 14px;
+            display: none;
+        }
+        .expandable {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            font-size: 16px;
+            color: #71001C;
+            margin-top: 10px;
+        }
+        .expand-icon {
+            cursor: pointer;
+            font-size: 14px;
+            color: #71001C;
+            margin-left: 10px;
+            transform: rotate(0deg);
+            transition: transform 0.3s ease;
+        }
+        .expanded .expand-icon {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Carrinho de Compras</h2>
+        <div class="steps">
+            <div class="active"><span>1</span> Produtos</div>
+            <div><span>2</span> Entrega</div>
+            <div><span>3</span> Pagamento</div>
+        </div>
+        
+        <div id="cart-items">
+            <div class="cart-item" id="item-1" data-price="185.00">
+                <img src="Imagens/Quebrada de las Flechas Reserva Malbec 2015.png" alt="Produto">
+                <div class="cart-item-info">
+                    <h4>Quebrada de las Flechas Reserva Malbec 2015</h4>
+                    <span class="price" id="item-price-1">R$ 185.00</span>
+                </div>
+                <div class="cart-quantity">
+                    <button onclick="changeQuantity('item-1', -1)">-</button>
+                    <input type="text" id="quantity-1" value="1" readonly>
+                    <button onclick="changeQuantity('item-1', 1)">+</button>
+                </div>
+                <span class="remove-link" onclick="removeItem('item-1')">Remover</span>
+            </div>
+        </div>
+
+        <div class="sidebar">
+            <div class="expandable" onclick="toggleSection('freight-container', this)">
+                Calcular frete <span class="expand-icon">▼</span>
+            </div>
+            <div id="freight-container" class="freight-container">
+                <h3>Calcular Frete</h3>
+                <label for="cep">Insira o seu destino para obter uma estimativa de envio.</label>
+                <input type="text" id="cep" placeholder="Informe o CEP" onblur="calculateFreight()">
+                <p id="freight-error" class="freight-error"></p>
+                <p id="freight-value" style="display: none;"></p>
+            </div>
+
+            <div class="expandable" onclick="toggleSection('coupon-container', this)">
+                Inserir cupom de desconto <span class="expand-icon">▼</span>
+            </div>
+            <div id="coupon-container" class="coupon-container">
+                <h3>Inserir Cupom de Desconto</h3>
+                <label for="coupon">Digite seu cupom de desconto abaixo:</label>
+                <input type="text" id="coupon" placeholder="Digite o código do cupom" onblur="applyDiscount()">
+                <p id="coupon-error" class="coupon-error">Cupom inválido ou expirado. Tente outro.</p>
+            </div>
+        </div>
+
+        <div class="summary">
+            <h3>Resumo do Pedido</h3>
+            <div>
+                <span>Subtotal</span>
+                <span id="subtotal">R$ 185.00</span>
+            </div>
+            <div>
+                <span id="freight-summary">Frete</span>
+                <span id="freight-total">R$ 0.00</span>
+            </div>
+            <div>
+                <span>Desconto</span>
+                <span id="discount">R$ 0.00</span>
+            </div>
+            <div>
+                <span>Total</span>
+                <span id="total">R$ 185.00</span>
+            </div>
+            <button>Finalizar Pedido</button>
+        </div>
+    </div>
+
+    <script>
+        function changeQuantity(itemId, delta) {
+            const item = document.getElementById(itemId);
+            const quantityInput = item.querySelector('input[type="text"]');
+            let quantity = parseInt(quantityInput.value) + delta;
+            quantity = Math.max(1, quantity); // Garante que a quantidade mínima seja 1
+            quantityInput.value = quantity;
+
+            const price = parseFloat(item.dataset.price);
+            const itemTotal = price * quantity;
+            document.getElementById('item-price-' + itemId.split('-')[1]).innerText = 'R$ ' + itemTotal.toFixed(2);
+
+            updateSummary();
+        }
+
+        function removeItem(itemId) {
+            const item = document.getElementById(itemId);
+            item.parentElement.removeChild(item); // Remove o item do carrinho
+            updateSummary();
+        }
+
+        function updateSummary() {
+            let subtotal = 0;
+            const items = document.querySelectorAll('.cart-item');
+            items.forEach(item => {
+                const price = parseFloat(item.dataset.price);
+                const quantity = parseInt(item.querySelector('input').value);
+                subtotal += price * quantity;
+            });
+
+            // Verifica se não há mais itens no carrinho
+            if (items.length === 0) {
+                subtotal = 0;
+            }
+
+            const freight = parseFloat(document.getElementById('freight-total').innerText.replace('R$ ', '')) || 0;
+            const discount = parseFloat(document.getElementById('discount').innerText.replace('R$ ', '')) || 0;
+            const total = subtotal + freight - discount;
+
+            document.getElementById('subtotal').innerText = 'R$ ' + subtotal.toFixed(2);
+            document.getElementById('total').innerText = 'R$ ' + total.toFixed(2);
+        }
+
+        function applyDiscount() {
+            const couponInput = document.getElementById('coupon').value;
+            const couponError = document.getElementById('coupon-error');
+
+            // Verifica se o cupom é válido (aqui é um exemplo simples)
+            if (couponInput === 'DESCONTO10') {
+                couponError.style.display = 'none';
+                const subtotal = parseFloat(document.getElementById('subtotal').innerText.replace('R$ ', ''));
+                const discount = subtotal * 0.10; // 10% de desconto
+                document.getElementById('discount').innerText = 'R$ ' + discount.toFixed(2);
+            } else {
+                couponError.style.display = 'block';
+                document.getElementById('discount').innerText = 'R$ 0.00';
+            }
+            updateSummary();
+        }
+
+        function toggleSection(sectionId, element) {
+            const section = document.getElementById(sectionId);
+            section.style.display = section.style.display === 'block' ? 'none' : 'block';
+            element.classList.toggle('expanded');
+        }
+
+        function calculateFreight() {
+            const cep = document.getElementById('cep').value;
+            const freightError = document.getElementById('freight-error');
+            const freightValue = document.getElementById('freight-value');
+            const freightTotal = document.getElementById('freight-total');
+
+            // Simula a consulta de frete com base no CEP
+            if (cep.length === 8 && /^\d+$/.test(cep)) {
+                // Exemplo de cálculo de frete baseado em um CEP fictício
+                const simulatedFreight = 15.00; // Simule aqui a lógica de cálculo
+                freightError.style.display = 'none';
+                freightValue.style.display = 'block';
+                freightValue.innerText = 'Frete estimado: R$ ' + simulatedFreight.toFixed(2);
+                freightTotal.innerText = 'R$ ' + simulatedFreight.toFixed(2);
+                updateSummary();
+            } else {
+                freightError.style.display = 'block';
+                freightError.innerText = 'Por favor, insira um CEP válido.';
+                freightValue.style.display = 'none';
+                freightTotal.innerText = 'R$ 0.00';
+                updateSummary();
+            }
+        }
+    </script>
+</body>
+</html>

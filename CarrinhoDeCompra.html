@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho de Compras</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h2 {
+            font-size: 24px;
+            color: #333;
+        }
+        .steps {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .steps div {
+            display: flex;
+            align-items: center;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .steps div.active {
+            color: #007F4F;
+        }
+        .steps div span {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: #007F4F;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 10px;
+        }
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .cart-item img {
+            width: 80px;
+            height: auto;
+            border-radius: 5px;
+        }
+        .cart-item-info {
+            display: flex;
+            flex-direction: column;
+        }
+        .cart-item-info h4 {
+            margin: 0;
+            font-size: 16px;
+            color: #333;
+        }
+        .cart-item-info .price {
+            font-size: 18px;
+            font-weight: bold;
+            color: #007F4F;
+        }
+        .cart-quantity {
+            display: flex;
+            align-items: center;
+        }
+        .cart-quantity button {
+            background-color: #007F4F;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 18px;
+        }
+        .cart-quantity input {
+            width: 40px;
+            text-align: center;
+            font-size: 16px;
+            margin: 0 10px;
+        }
+        .summary {
+            background-color: #f5f5f5;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .summary h3 {
+            margin-top: 0;
+            font-size: 20px;
+        }
+        .summary div {
+            display: flex;
+            justify-content: space-between;
+            margin: 10px 0;
+        }
+        .summary button {
+            width: 100%;
+            padding: 15px;
+            background-color: #007F4F;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .sidebar {
+            margin-left: 20px;
+            max-width: 300px;
+            display: flex;
+            flex-direction: column;
+        }
+        .sidebar button {
+            margin-top: 10px;
+            padding: 10px;
+            font-size: 14px;
+            color: white;
+            background-color: #007F4F;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .remove-link {
+            color: red;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Carrinho de Compras</h2>
+        <div class="steps">
+            <div class="active"><span>1</span> Produtos</div>
+            <div><span>2</span> Entrega</div>
+            <div><span>3</span> Pagamento</div>
+        </div>
+        
+        <div id="cart-items">
+            <div class="cart-item" id="item-1" data-price="207.92">
+                <img src="https://via.placeholder.com/80" alt="Produto">
+                <div class="cart-item-info">
+                    <h4>Saint Clair Marlborough Sun Chardonnay 2021 750mL</h4>
+                    <span class="price" id="item-price-1">R$ 207,92</span>
+                </div>
+                <div class="cart-quantity">
+                    <button onclick="changeQuantity('item-1', -1)">-</button>
+                    <input type="text" id="quantity-1" value="1" readonly>
+                    <button onclick="changeQuantity('item-1', 1)">+</button>
+                </div>
+                <span class="remove-link" onclick="removeItem('item-1')">Remover</span>
+            </div>
+        </div>
+
+        <div class="sidebar">
+            <button>Calcular frete</button>
+            <button>Inserir cupom de desconto</button>
+            <button>Inserir cupom vendedor</button>
+        </div>
+
+        <div class="summary">
+            <h3>Resumo do Pedido</h3>
+            <div>
+                <span>Subtotal</span>
+                <span id="subtotal">R$ 207,92</span>
+            </div>
+            <div>
+                <span>Total</span>
+                <span id="total">R$ 207,92</span>
+            </div>
+            <button>Ir para entrega</button>
+        </div>
+    </div>
+
+    <script>
+        function changeQuantity(itemId, change) {
+            const quantityInput = document.getElementById('quantity-' + itemId.split('-')[1]);
+            let quantity = parseInt(quantityInput.value);
+
+            // Atualiza a quantidade
+            quantity += change;
+            if (quantity < 1) quantity = 1; // Não permite quantidades menores que 1
+            quantityInput.value = quantity;
+
+            // Atualiza o preço baseado na quantidade
+            const item = document.getElementById(itemId);
+            const itemPrice = parseFloat(item.getAttribute('data-price'));
+            const totalItemPrice = (itemPrice * quantity).toFixed(2);
+
+            document.getElementById('item-price-' + itemId.split('-')[1]).textContent = 'R$ ' + totalItemPrice;
+
+            // Atualiza o subtotal e total
+            updateTotals();
+        }
+
+        function updateTotals() {
+            let subtotal = 0;
+            const items = document.querySelectorAll('.cart-item');
+            
+            items.forEach(item => {
+                const quantity = parseInt(item.querySelector('input[type="text"]').value);
+                const price = parseFloat(item.getAttribute('data-price'));
+                subtotal += price * quantity;
+            });
+
+            subtotal = subtotal.toFixed(2);
+            
+            document.getElementById('subtotal').textContent = 'R$ ' + subtotal;
+            document.getElementById('total').textContent = 'R$ ' + subtotal;
+        }
+
+        function removeItem(itemId) {
+            const item = document.getElementById(itemId);
+            if (item) {
+                item.remove();
+                updateTotals();
+            }
+        }
+    </script>
+</body>
+</html>
