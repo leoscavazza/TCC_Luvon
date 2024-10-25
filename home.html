@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luvon Vinhos</title>
+    <title>Luvon vino</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="home.css">
+    <link rel="shortcut icon" href="Imagens/favicon.png" type="image/x-icon">
 </head>
 <body>
     <header>
@@ -40,14 +41,16 @@
         </div>
     </header>    
     
-    
-    <div class="linha-horizontal"></div>
+
+    <div class="linha-horizontal">
+        <p>Televendas: 9789 15157</p>
+    </div>
     
     <div class="carousel">
         <div class="carousel-images" id="carousel-images">
             <img src="Imagens/Banner_1.png" alt="Imagem 1">
             <img src="Imagens/Promoção de natal.png" alt="Imagem 2">
-            <img src="Imagens/img3.jpg" alt="Imagem 3">
+            <img src="Imagens/Frete gratis.png" alt="Imagem 3">
         </div>
 
         <!-- Botões de navegação -->
@@ -61,13 +64,21 @@
 
     </div>
 
+    <div class="principais-vinhos">
+        <h2> Principais Vinhos</h2>
+        <p>Explore os vinhos icônicos que destacam a essência do nosso portfólio.</p>
+        <div class="linha"></div>
+    </div>
    
     <section class="products">
         <div class="product">
             <img src="Imagens/Quebrada de las Flechas Reserva Malbec 2015.png" alt="Quebrada de las Flechas Reserva Malbec 2015">
-            <h3>Quebrada de las Flechas Reserva Malbec 2015</h3>
-            <p>R$185,00</p>
-            <button>Comprar</button>
+            <div class="desconto">20% OFF</div>
+            <h2>Quebrada de las Flechas Reserva Malbec 2015</h2>
+            <p class="product-meta">Argentina • Chardonnay</p>
+            <p class="old-price">R$ 239,90</p>
+            <p class="subscriber-price"> 15% OFF <span class="price-highlight">R$ 185,00</span></p>
+            <button class="buy-button">Comprar</button>
         </div>
 
         <div class="product">
@@ -133,7 +144,7 @@
         <div class="direitos">
             <li>A venda de bebidas alcoólicas é proibida para menores de 18 anos. Aprecie com moderação. Se beber, não dirija. <br>
 
-                © 2024. E-vino Comércio de Vinhos S.A. - CNPJ: 17.392.519/0001-65. Bela Cintra, 986 - Consolação, São Paulo - SP. <br>
+                © 2024. Luvon vino Comércio de Vinhos S.A. <br>
                 
                 Todos os direitos reservados.</li>
         </div>
