@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carrinho de Compras</title>
     <style>
-        body {
+    body {
             font-family: Arial, sans-serif;
             background-color: #f8f8f8;
             margin: 0;
@@ -186,8 +186,279 @@
         .expanded .expand-icon {
             transform: rotate(180deg);
         }
+
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* Garante que ele fique sobre outros elementos */
+    background-color: #6a1717;
+    height: 100px; /* Altura fixa */
+    padding: 0 20px;
+    color: #fff;
+}
+
+button img {
+   width: 20px;
+}
+
+.linha-horizontal {
+    position: sticky;
+    top: 100px;
+    z-index: 999; /* Garante que ele fique sobre outros elementos */
+    width: 100%;              /* Ocupa 100% da largura da tela */
+    height: 25px;              /* Fina com 2px de altura */
+    background-color: #181818;  /* Cor preta */
+    margin: 0;                /* Remove margens extras */
+    display: flex;            /* Flexbox para alinhar conteúdo */
+    align-items: center;      /* Alinha o conteúdo verticalmente ao centro */
+    
+}
+
+.linha-horizontal p {
+    color: rgb(88, 88, 88);             /* Define a cor do texto como branca */
+    font-size: 14px;          /* Tamanho da fonte, ajuste conforme necessário */
+    margin: 0;                /* Remove margens padrão do parágrafo */
+    font-family: "Montserrat", sans-serif;
+}
+
+.top-bar {
+    display: flex;
+    justify-content: space-between; /* Espaçamento entre os três blocos */
+    align-items: center;
+    padding: 10px 20px;
+    height: 95px;
+}
+
+/* Lista de navegação */
+.top-bar ul {
+    display: flex; /* Coloca os itens em linha */
+    gap: 120px; /* Espaçamento entre os itens */
+    list-style: none; /* Remove marcadores */
+    padding: 0;
+    margin: 0;
+    font-size: 15px;
+    font-family: "Inter", sans-serif;
+}
+
+/* Links da navegação */
+.top-bar ul li a {
+    text-decoration: none; /* Remove sublinhado */
+    color: #fffefe; /* Cor do texto */
+    font-weight: 300; /* Deixa o texto fino */
+    transition: color 0.3s ease; /* Animação suave na cor */
+}
+
+/* Efeito hover nos links */
+.top-bar ul li a:hover {
+    color: rgb(225, 201, 158); /* Muda a cor ao passar o mouse */
+}
+
+.logo {
+    height: 125px;
+    vertical-align: middle; /* Alinha verticalmente a logo no meio */
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px; /* Espaçamento entre itens do menu */
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.cart img {
+    width: 150px;
+    margin: 10px;
+    
+}
+
+.left-section {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Espaço entre a logo e a barra de busca */
+}
+
+/* Ajustando o layout da barra de pesquisa */
+.search-bar {
+    display: flex;
+    align-items: center;
+    border: 2px solid #643131;
+    border-radius: 20px;
+    padding: 5px 10px;
+    background-color: #643131;
+    width: 300px;
+    margin: 0 20px; /* Espaço entre a pesquisa e os outros blocos */
+}
+
+.search-bar input {
+    border: none;
+    outline: none;
+    background: transparent;
+    color: #fff;
+    padding: 10px;
+    flex: 1;
+    font-size: 16px;
+    font-family: "Inter", sans-serif;
+}
+
+.search-bar input::placeholder {
+    color: #ccc;
+}
+
+.search-bar button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    color: #ccc;
+    padding-left: 10px;
+}
+
+.search-bar button:hover {
+    color: #fff;
+}
+
+/* Estilo do carrinho/login */
+.cart img {
+    width: 150px;
+    margin: 10px;
+}
+
+footer {
+    background-color: #71001C;
+    color: #fff;
+    padding: 20px 0;
+} 
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-content ul li a {
+    display: block; /* Torna o link um elemento de bloco */
+    margin-bottom: 20px; /* Adiciona espaçamento vertical entre os itens */
+    color: #fff;
+    text-decoration: none; 
+    margin-top: 25px;
+}
+
+.footer-content ul img {
+    width: 350px;
+    margin: 0 10px;
+    position: relative;
+    left: 250px;
+    top: -100px;
+}
+
+.metodo-pagamento li {
+    padding: 30px;   
+    list-style-type: none; /* Remove a bolinha */ 
+    position: relative;
+    left: 62px;
+    font-size: 20px;
+    top: 50px;
+}
+
+.metodo-pagamento img {
+    width: 600px;
+    margin: 0 10px;  
+    margin-bottom: 170px;  
+    position: relative;
+    left: 80px;
+    top: 50px;
+}
+
+.social {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.social img {
+    width: 50px;
+    margin: 0 10px;
+    position: relative;
+    left: 450px;
+    top: -260px;
+}
+
+.logo-e-social img{
+    width: 50px;
+    position: relative;
+    left: 1255px;
+} 
+
+.logo-footer {
+    width: 60px;
+    position: relative;
+    right: 600px;
+}
+
+.direitos {
+    position: relative;
+    list-style-type: none;
+    text-align: center; /* Centraliza o texto */
+    margin: 20px 0; /* Adiciona uma margem superior e inferior */
+    font-family: Arial, sans-serif; /* Define uma fonte legível */
+    font-size: 13px; /* Tamanho de fonte */
+    color: #ffffff; /* Cor do texto */
+}
+
     </style>
 </head>
+
+<header>
+    <div class="top-bar">
+        <!-- Logo alinhado à esquerda -->
+        <div class="logo-container">
+            <img src="Imagens/logo.png" alt="Logo" class="logo">
+        </div>
+
+        <!-- Menu de navegação -->
+        <nav>
+            <ul>
+                <li><a href="#">VINHOS</a></li>
+                <li><a href="#">PAÍSES</a></li>
+                <li><a href="#">VINÍCOLAS</a></li>
+                <li><a href="#">KITS</a></li>
+            </ul>
+        </nav>
+
+        <!-- Barra de pesquisa -->
+        <div class="search-bar">
+            <input type="text" placeholder="Buscar vinhos...">
+            <button type="submit">
+                <img src="Imagens/Lupa.png" alt="Lupa">
+            </button>
+        </div>
+
+        <!-- Carrinho / Login -->
+        <div class="cart">
+            <img src="Imagens/Olá! Faça seu login.png" alt="Login">
+        </div>
+    </div>
+</header>    
+
+
+<div class="linha-horizontal">
+    <p>Televendas: 9789 15157</p>
+</div>
+
 <body>
     <div class="container">
         <h2>Carrinho de Compras</h2>
@@ -349,4 +620,34 @@
         }
     </script>
 </body>
+
+<footer>
+    <div class="footer-content">
+        <ul>
+            <li><a href="#">Quem Somos</a></li>
+            <li><a href="#">Nossas Políticas</a></li>
+            <li><a href="#">Garantia de Qualidade</a></li>
+            <li><a href="#">Nossas Lojas</a></li>
+            <li><a href="#">Política de privacidade</a></li>
+            <li><a href="#">Política de frete</a></li>
+        </ul>
+        <div class="metodo-pagamento">
+            <li><strong>FORMAS DE PAGAMENTO</strong></li>
+            <img src="Imagens/Formas de pagamento.png" alt="Pagamento">
+        </div>
+    </div>
+    <div class="logo-e-social">
+        <img src="Imagens/twitter.png" alt="Twitter">
+        <img src="Imagens/facebook.png" alt="facebook">
+        <img src="Imagens/instagram.png" alt="instagram">
+    </div>
+    <div class="direitos">
+        <li>A venda de bebidas alcoólicas é proibida para menores de 18 anos. Aprecie com moderação. Se beber, não dirija. <br>
+
+            © 2024. Luvon vino Comércio de Vinhos S.A. <br>
+            
+            Todos os direitos reservados.</li>
+    </div>
+</footer>
+
 </html>
