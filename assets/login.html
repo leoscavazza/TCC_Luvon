@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <main>
+
+        <h1>Criar conta</h1>
+        <div class="social-media">
+
+            <a href="https://www.google.com.br/?gws_rd=ssl" target="_blank">
+                <img src="assets/google.png" alt="Google">
+            </a>
+       
+
+            <a href="https://pt-br.facebook.com/" target="_blank">
+                <img src="assets/facebook.png" alt="Facebook">
+            </a>
+    
+
+            <a href="https://br.linkedin.com/" target="_blank">
+                <img src="assets/linkedin.png" alt="Linkedin">
+            </a>
+
+        </div>
+<!--___________________________________________________ -->
+
+        <div class="alternative">
+            <span>OU</span>
+        </div>
+
+<!-- __________________________________________________ -->
+        <form action="https://api.sheetmonkey.io/form/gZjdwv2vADiRgMT5gtSmK1" method="post">
+            <label for="name">
+                <span>Nome</span>
+                <input type="text" id="name" name="name">
+            </label>
+
+            <label>
+                <span>Cep</span>
+                <input type="text" id="cep" name="cep" value="" size="10" maxlength="9" onblur="pesquisacep(this.value);">
+            </label>
+
+            <label>
+                <span>Rua</span>
+                <input type="text" id="rua" name="rua" size="60">
+            </label>
+
+            <label>
+                <span>Bairro</span>
+                <input type="text" id="bairro" name="bairro" size="40">
+            </label>
+
+            <label>
+                <span>Cidade</span>
+                <input type="text" id="cidade" name="cidade" size="40">
+            </label>
+
+        
+            <label>
+                <span>Estado</span>
+                <input type="text" id="uf" name="uf" size="2">
+            </label>
+
+            <input type="submit" value="Enviar">
+        </form>
+    </main>
+<!-- __________________________________________________ -->
+
+    <section class="images">
+
+            <img src="assets/mobile.svg" alt="mobile">
+            <div class="circle"></div>
+
+    </section>
+    
+<!-- __________________________________________________ -->
+    <script src="cep.js"></script>
+
+    
+</body>
+</html>
