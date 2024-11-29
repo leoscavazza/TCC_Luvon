@@ -226,72 +226,15 @@ button img {
     padding: 0;
 }
 
-body {
-    font-family: Arial, sans-serif;
+.banner {
+    max-width: 100% ;
 }
 
-.carousel {
-    position: relative;
-    max-width: 100%;
-    margin: auto;
-    overflow: hidden;
+.banner img {
+    width: 100% ;
 }
 
-.carousel-images {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-}
-
-.carousel-images img {
-    width: 100%;
-    min-width: 100%;
-}
-
-button.prev, button.next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    border: none;
-    color: white;
-    font-size: 24px;
-    padding: 10px;
-    cursor: pointer;
-}
-
-button.prev {
-    left: 10px;
-}
-
-button.next {
-    right: 10px;
-}
-
-/* Estilizando os indicadores (bolinhas) */
-.carousel-indicators {
-    display: flex;
-    justify-content: center;
-    position: absolute;
-    bottom: 15px;
-    width: 100%;
-}
-
-.carousel-indicators div {
-    height: 8px;
-    width: 8px;
-    background-color:#ddd;
-    border-radius: 50%;
-    margin: 0 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.carousel-indicators .active {
-    background-color: #bb2a2a;
-}
-
-/* Centraliza o conteúdo dentro de um container */
-.principais-vinhos {
+.salentein {
     max-width: 1200px;        /* Define uma largura máxima para o conteúdo */
     margin: 0 auto;           /* Centraliza o container na página */
     text-align: center;       /* Centraliza o texto */
@@ -307,33 +250,6 @@ button.next {
     margin-bottom: 20px;      /* Espaço abaixo da linha */
 }
 
-/* Estilos para h1 e p */
-h1 {
-    font-size: 24px;          /* Tamanho da fonte do título */
-    margin-bottom: 10px;      /* Espaçamento abaixo do título */
-}
-
-p {
-    font-size: 16px;          /* Tamanho da fonte do parágrafo */
-    margin-bottom: 10px;      /* Espaçamento abaixo do parágrafo */
-}
-
-
-
-
-.cta {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #7a1a1a;
-    color: #fff;
-    padding: 10px 20px;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 5px;
-}
-
 .container {
     display: flex;
     justify-content: space-around;
@@ -341,6 +257,7 @@ p {
     gap: 20px;
     max-width: 1200px;
     margin: 0 auto;
+    margin-bottom:40px;
 }
 
 .product {
@@ -458,54 +375,7 @@ p {
     margin-bottom: 100px;
 }
 
-.tipos-de-vinhos div {
-    width: 280px;
-    transition: transform 0.3s ease; /* Transição suave */
-}
-
-.tipos-de-vinhos div:hover {
-    transform: scale(1.05); /* Aumenta 5% a div individual */
-}
-
-.tipos-de-vinhos img {
-    width: 100%; /* Ajusta a imagem para preencher a div */
-    border-radius: 20px;
-}
-
-.principais-vinhos-2 {
-    max-width: 1200px;        /* Define uma largura máxima para o conteúdo */
-    margin: 0 auto;           /* Centraliza o container na página */
-    text-align: center;       /* Centraliza o texto */
-    padding: 20px;            /* Espaçamento interno para dar respiro */
-}
-
-.conheça-vinicolas {
-    display: flex;
-    margin-top: 80px;
-}
-
-.conheça-vinicolas img{
-    width: 100%;
-}
-
-.principais-vinhos-brasil {
-    max-width: 1200px;        /* Define uma largura máxima para o conteúdo */
-    margin: 0 auto;           /* Centraliza o container na página */
-    text-align: center;       /* Centraliza o texto */
-    padding: 20px;            /* Espaçamento interno para dar respiro */
-}
-
-.container-2 {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    gap: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-    margin-bottom: 50px;
-}
-
- footer {
+footer {
     background-color: #71001C;
     color: #fff;
     padding: 20px 0;
