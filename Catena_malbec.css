@@ -1,0 +1,435 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* Garante que ele fique sobre outros elementos */
+    background-color: #6a1717;
+    height: 100px; /* Altura fixa */
+    padding: 0 20px;
+    color: #fff;
+}
+
+.linha-horizontal {
+    position: sticky;
+    top: 100px;
+    z-index: 999; /* Garante que ele fique sobre outros elementos */
+    width: 100%;              /* Ocupa 100% da largura da tela */
+    height: 25px;              /* Fina com 2px de altura */
+    background-color: #181818;  /* Cor preta */
+    margin: 0;                /* Remove margens extras */
+    display: flex;            /* Flexbox para alinhar conteúdo */
+    align-items: center;      /* Alinha o conteúdo verticalmente ao centro */
+    
+}
+
+.linha-horizontal p {
+    color: rgb(88, 88, 88);             /* Define a cor do texto como branca */
+    font-size: 14px;          /* Tamanho da fonte, ajuste conforme necessário */
+    margin: 0;                /* Remove margens padrão do parágrafo */
+    font-family: "Montserrat", sans-serif;
+}
+
+.top-bar {
+    display: flex;
+    justify-content: space-between; /* Espaçamento entre os três blocos */
+    align-items: center;
+    padding: 10px 20px;
+    height: 95px;
+}
+
+/* Lista de navegação */
+.top-bar ul {
+    display: flex; /* Coloca os itens em linha */
+    gap: 120px; /* Espaçamento entre os itens */
+    list-style: none; /* Remove marcadores */
+    padding: 0;
+    margin: 0;
+    font-size: 15px;
+    font-family: "Inter", sans-serif;
+}
+
+/* Links da navegação */
+.top-bar ul li a {
+    text-decoration: none; /* Remove sublinhado */
+    color: #fffefe; /* Cor do texto */
+    font-weight: 300; /* Deixa o texto fino */
+    transition: color 0.3s ease; /* Animação suave na cor */
+}
+
+/* Efeito hover nos links */
+.top-bar ul li a:hover {
+    color: rgb(225, 201, 158); /* Muda a cor ao passar o mouse */
+}
+
+.logo {
+    height: 125px;
+    vertical-align: middle; /* Alinha verticalmente a logo no meio */
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px; /* Espaçamento entre itens do menu */
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.cart img {
+    width: 150px;
+    margin: 10px;
+    
+}
+
+.left-section {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Espaço entre a logo e a barra de busca */
+}
+
+/* Ajustando o layout da barra de pesquisa */
+.search-bar {
+    display: flex;
+    align-items: center;
+    border: 2px solid #643131;
+    border-radius: 20px;
+    padding: 5px 10px;
+    background-color: #643131;
+    width: 300px;
+    margin: 0 20px; /* Espaço entre a pesquisa e os outros blocos */
+}
+
+.search-bar input {
+    border: none;
+    outline: none;
+    background: transparent;
+    color: #fff;
+    padding: 10px;
+    flex: 1;
+    font-size: 16px;
+    font-family: "Inter", sans-serif;
+}
+
+.search-bar input::placeholder {
+    color: #ccc;
+}
+
+.search-bar button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    color: #ccc;
+    padding-left: 10px;
+}
+
+.search-bar button:hover {
+    color: #fff;
+}
+
+/* Estilo do carrinho/login */
+.cart img {
+    width: 150px;
+    margin: 10px;
+}
+
+button img {
+    width: 20px;
+}
+
+/* Container principal */
+.product-container {
+    border: 1px solid rgb(115, 115, 115);
+    border-radius: 20px;
+    display: flex;
+    gap: 30px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: flex-start; /* Garante que a imagem e info fiquem alinhadas no topo */
+    margin-top: 40px;
+    margin-bottom: 60px;
+}
+
+/* Imagem do produto */
+.product-image {
+    position: relative;
+    width: 40%;
+    display: flex;
+    justify-content: center;
+}
+
+.product-image img {
+    width: 100%;
+    max-width: 300px; /* Controla o tamanho máximo da imagem */
+    border-radius: 10px;
+}
+
+.product-info b {
+    margin-right: 4px; /* Define um espaço à direita do texto em negrito */
+}
+
+/* Título do produto */
+.product-info h1 {
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 1.2;
+}
+
+.product-info {
+    display: flex;
+    flex-wrap: wrap; /* Permite quebrar os itens para a próxima linha */
+    gap: 30px; /* Espaço entre os itens */
+    margin-top: 10px;
+    max-width: 500px; /* Define uma largura máxima para o container (ajuste conforme necessário) */
+}
+
+.product-info p {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    color: #555;
+    margin: 0;
+    width: calc(33.33% - 20px); /* Faz com que cada item ocupe 1/3 da linha, considerando o gap */
+    box-sizing: border-box;
+}
+
+.product-info img {
+    width: 30px;
+    height: 30px;
+    margin-right: 8px;
+}
+
+/* Container de informações de preço */
+/* Container de informações de preço */
+.price-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+/* Preço original e desconto em linha */
+.original-price-section {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espaço entre o preço original e o desconto */
+}
+
+/* Preço original */
+.original-price {
+    font-size: 16px;
+    text-decoration: line-through;
+    color: #999;
+}
+
+.em-ate {
+    position: relative;
+    top: 25px;
+}
+
+/* Desconto como quadradinho compacto */
+.discount {
+    background-color: #ff5a5f;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    display: inline-flex; /* Inline-flex para se ajustar ao conteúdo */
+    align-items: center; /* Centraliza o texto verticalmente */
+    justify-content: center; /* Centraliza o texto horizontalmente */
+    width: fit-content; /* Ajusta o tamanho do elemento ao conteúdo */
+    text-align: center; /* Centraliza o texto */
+    box-sizing: border-box; /* Garante que o padding não afete o tamanho */
+}
+
+/* Preço final */
+.final-price {
+    font-size: 28px;
+    color: #1fb954;
+    font-weight: bold;
+}
+
+/* Desconto Pix */
+.pix-discount {
+    color: #1fb954;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* Seção de compra */
+.purchase-section {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap; /* Permite que os botões quebrem linha se o espaço for insuficiente */
+}
+
+.quantity-selector {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.quantity-btn {
+    width: 30px;
+    height: 30px;
+    background-color: #6a1717;
+    color: #f5f5f5;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.quantity-selector input {
+    width: 40px;
+    text-align: center;
+    font-size: 16px;
+    border: 1px solid #818181;
+    border-radius: 5px;
+}
+
+.add-to-cart {
+    background-color: #6a1717;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.linha {
+    max-width: 1300px;        /* Define uma largura máxima para o conteúdo */
+    margin: 0 auto;           /* Centraliza o container na página */
+    text-align: center;       /* Centraliza o texto */    
+    width: 100%;              /* Ocupa 100% da largura do container */
+    height: 2px;              /* Linha fina */
+    background-color: #b51c24;/* Cor vermelha */
+    margin-top: 10px;         /* Espaço entre o conteúdo e a linha */
+    margin-bottom: 20px;      /* Espaço abaixo da linha */
+}
+
+.ficha-2 {
+    display: flex;
+    margin-top: 80px;
+    margin-bottom: 60px;
+}
+
+.ficha-2 img {
+    width: 100%;
+}
+
+.avaliacoes {
+text-align: center;
+}
+
+.avaliacoes img {
+    width: 400px;
+    height: 400px;
+    margin-top: 50px;
+    margin-bottom: 80px;
+    padding: 20px;
+}
+
+footer {
+    background-color: #71001C;
+    color: #fff;
+    padding: 20px 0;
+} 
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.footer-content ul li a {
+    display: block; /* Torna o link um elemento de bloco */
+    margin-bottom: 20px; /* Adiciona espaçamento vertical entre os itens */
+    color: #fff;
+    text-decoration: none; 
+    margin-top: 25px;
+}
+
+.footer-content ul img {
+    width: 350px;
+    margin: 0 10px;
+    position: relative;
+    left: 250px;
+    top: -100px;
+}
+
+.metodo-pagamento li {
+    padding: 30px;   
+    list-style-type: none; /* Remove a bolinha */ 
+    position: relative;
+    left: 62px;
+    font-size: 20px;
+    top: 50px;
+}
+
+.metodo-pagamento img {
+    width: 600px;
+    margin: 0 10px;  
+    margin-bottom: 170px;  
+    position: relative;
+    left: 80px;
+    top: 50px;
+}
+
+.social {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.social img {
+    width: 50px;
+    margin: 0 10px;
+    position: relative;
+    left: 450px;
+    top: -260px;
+}
+
+.logo-e-social img{
+    width: 50px;
+    position: relative;
+    left: 1255px;
+} 
+
+.logo-footer {
+    width: 60px;
+    position: relative;
+    right: 600px;
+}
+
+.direitos {
+    position: relative;
+    list-style-type: none;
+    text-align: center; /* Centraliza o texto */
+    margin: 20px 0; /* Adiciona uma margem superior e inferior */
+    font-family: Arial, sans-serif; /* Define uma fonte legível */
+    font-size: 13px; /* Tamanho de fonte */
+    color: #ffffff; /* Cor do texto */
+}

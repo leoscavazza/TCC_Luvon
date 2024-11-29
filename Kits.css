@@ -4,78 +4,6 @@
     box-sizing: border-box;
 }
 
-body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #f5f5f5;
-    color: #333;
-}
-
-#ageModal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-  }
-
-  .modal-content {
-    background-color: #fff;
-    border-radius: 10px;
-    padding: 20px;
-    width: 300px;
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  }
-
-  .modal-content img {
-    width: 100%;
-    border-radius: 10px;
-  }
-
-  .modal-content h2 {
-    font-size: 18px;
-    color: #333;
-    margin-top: 20px;
-  }
-
-  .modal-content p {
-    font-size: 14px;
-    color: #666;
-    margin-top: 10px;
-  }
-
-  .modal-content .buttons {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 20px;
-  }
-
-  .modal-content .buttons button {
-    background-color: #000000;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    cursor: pointer;
-    font-size: 14px;
-  }
-
-  .modal-content .buttons button:hover {
-    background-color: #6a1717;
-  }
-
-  /* Mensagem de aviso caso a pessoa clique em "Não" */
-  .warning-message {
-    font-size: 12px;
-    color: #ff0000;
-    margin-top: 10px;
-    display: none;
-  }
 
 header {
     position: sticky;
@@ -217,81 +145,36 @@ nav ul li a {
 }
 
 button img {
-   width: 20px;
-}
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+    width: 20px;
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
 }
 
-.carousel {
-    position: relative;
+/* Estilo básico do contêiner */
+.kits {
     max-width: 100%;
-    margin: auto;
-    overflow: hidden;
+    overflow: hidden; /* Garante que partes da imagem fora do contêiner fiquem invisíveis */
 }
 
-.carousel-images {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-}
-
-.carousel-images img {
+/* Estilo inicial da imagem */
+.kits img {
     width: 100%;
-    min-width: 100%;
+    opacity: 0; /* Invisível no início */
+    transform: translateY(-50px); /* Começa acima da posição inicial */
+    transition: opacity 1s ease, transform 1s ease; /* Transições suaves */
 }
 
-button.prev, button.next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    border: none;
-    color: white;
-    font-size: 24px;
-    padding: 10px;
-    cursor: pointer;
+/* Estilo para ativar a animação */
+.kits img.animate {
+    opacity: 1; /* Torna visível */
+    transform: translateY(0); /* Move para a posição final */
 }
-
-button.prev {
-    left: 10px;
-}
-
-button.next {
-    right: 10px;
-}
-
-/* Estilizando os indicadores (bolinhas) */
-.carousel-indicators {
-    display: flex;
-    justify-content: center;
-    position: absolute;
-    bottom: 15px;
-    width: 100%;
-}
-
-.carousel-indicators div {
-    height: 8px;
-    width: 8px;
-    background-color:#ddd;
-    border-radius: 50%;
-    margin: 0 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.carousel-indicators .active {
-    background-color: #bb2a2a;
-}
-
 /* Centraliza o conteúdo dentro de um container */
-.principais-vinhos {
+.principais-kits {
     max-width: 1200px;        /* Define uma largura máxima para o conteúdo */
     margin: 0 auto;           /* Centraliza o container na página */
     text-align: center;       /* Centraliza o texto */
@@ -307,31 +190,8 @@ button.next {
     margin-bottom: 20px;      /* Espaço abaixo da linha */
 }
 
-/* Estilos para h1 e p */
-h1 {
-    font-size: 24px;          /* Tamanho da fonte do título */
-    margin-bottom: 10px;      /* Espaçamento abaixo do título */
-}
-
-p {
-    font-size: 16px;          /* Tamanho da fonte do parágrafo */
-    margin-bottom: 10px;      /* Espaçamento abaixo do parágrafo */
-}
-
-
-
-
-.cta {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #7a1a1a;
-    color: #fff;
-    padding: 10px 20px;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 5px;
+.principais-kits p {
+    margin-top: 5px;
 }
 
 .container {
@@ -351,6 +211,7 @@ p {
     overflow: hidden;
     position: relative;
     margin-top: 30px;
+    margin-bottom: 60px;
 }
 
 .product-image {
@@ -443,69 +304,7 @@ p {
     margin-top: 10px;
 }
 
-.wishlist:hover {
-    color: #e74c3c;
-}
-
-.tipos-de-vinhos {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    gap: 25px;
-    max-width: 1200px;
-    margin: 0 auto;
-    margin-top: 110px;
-    margin-bottom: 100px;
-}
-
-.tipos-de-vinhos div {
-    width: 280px;
-    transition: transform 0.3s ease; /* Transição suave */
-}
-
-.tipos-de-vinhos div:hover {
-    transform: scale(1.05); /* Aumenta 5% a div individual */
-}
-
-.tipos-de-vinhos img {
-    width: 100%; /* Ajusta a imagem para preencher a div */
-    border-radius: 20px;
-}
-
-.principais-vinhos-2 {
-    max-width: 1200px;        /* Define uma largura máxima para o conteúdo */
-    margin: 0 auto;           /* Centraliza o container na página */
-    text-align: center;       /* Centraliza o texto */
-    padding: 20px;            /* Espaçamento interno para dar respiro */
-}
-
-.conheça-vinicolas {
-    display: flex;
-    margin-top: 80px;
-}
-
-.conheça-vinicolas img{
-    width: 100%;
-}
-
-.principais-vinhos-brasil {
-    max-width: 1200px;        /* Define uma largura máxima para o conteúdo */
-    margin: 0 auto;           /* Centraliza o container na página */
-    text-align: center;       /* Centraliza o texto */
-    padding: 20px;            /* Espaçamento interno para dar respiro */
-}
-
-.container-2 {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    gap: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-    margin-bottom: 50px;
-}
-
- footer {
+footer {
     background-color: #71001C;
     color: #fff;
     padding: 20px 0;
@@ -516,7 +315,6 @@ p {
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
-    gap: 20px;
 }
 
 .footer-content ul li a {
