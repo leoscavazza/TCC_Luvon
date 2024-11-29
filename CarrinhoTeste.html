@@ -419,6 +419,51 @@ footer {
     color: #ffffff; /* Cor do texto */
 }
 
+
+/* Estilo geral para todos os steps */
+.steps {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.step {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: bold;
+    font-size: 1em; /* Tamanho do texto */
+    padding: 10px; /* Espaçamento interno */
+    border-radius: 8px; /* Bordas arredondadas */
+    color: #333; /* Cor do texto */
+}
+
+/* Estilo para o número dentro do círculo */
+.step span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    font-size: 0.9em;
+    font-weight: bold;
+    color: #fff;
+}
+
+
+
+
+
+
+.step.entrega span {
+    background-color: #555; /* Cor de fundo para o círculo */
+}
+
+
+
+
+
     </style>
 </head>
 
@@ -463,10 +508,11 @@ footer {
     <div class="container">
         <h2>Carrinho de Compras</h2>
         <div class="steps">
-            <div class="active"><span>1</span> Produtos</div>
-            <div><span>2</span> Entrega</div>
-            <div><span>3</span> Pagamento</div>
+            <div class="step active"><span>1</span> Produtos</div>
+            <div class="step entrega"><span>2</span> Entrega</div>
+            <div class="step pagamento"><span>3</span> Pagamento</div>
         </div>
+        
         
         <div id="cart-items">
             <div class="cart-item" id="item-1" data-price="185.00">
@@ -525,7 +571,10 @@ footer {
                 <span>Total</span>
                 <span id="total">R$ 185.00</span>
             </div>
-            <button>Finalizar Pedido</button>
+            <a href="pagamento.html">
+                <button>Finalizar Pedido</button>
+            </a>
+            
         </div>
     </div>
 

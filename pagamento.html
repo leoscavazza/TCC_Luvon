@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Pagamento</title>
+    <style>
+        /* Estilos gerais */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        .container {
+            width: 80%;
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            color: #333;
+        }
+        /* Estilos para as etapas */
+        .steps {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .step {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .circle {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background-color: #4A001F;
+            color: #fff;
+            font-weight: bold;
+            font-size: 70%;
+        }
+        .step-text {
+            font-weight: bold;
+            color: #4A001F;
+        }
+        .active .circle {
+            background-color: #555;
+            color: #fff;
+        }
+        /* Estilos do formulário e resumo do pedido */
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        /* Ajuste para número e complemento lado a lado */
+        .address-line {
+            display: flex;
+            gap: 10px;
+        }
+        .address-line .form-group {
+            flex: 1;
+        }
+        .cart-summary {
+            margin-top: 20px;
+        }
+        .cart-summary h2 {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+        .cart-item, .coupon, .totals {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-top: 1px solid #ddd;
+        }
+        .coupon input {
+            width: auto;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #71001C;
+            color: #fff;
+            text-align: center;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .button:hover {
+            background-color: #71001C;
+        }
+
+        .cart-item {
+    display: flex;
+    justify-content: space-between; /* Espaça os elementos uniformemente */
+    align-items: center; /* Alinha os elementos verticalmente no centro */
+    padding: 10px; /* Espaçamento interno */
+    border-bottom: 1px solid #ddd; /* Linha inferior para separar visualmente */
+    font-size: 0.9em; /* Tamanho do texto */
+    color: #333; /* Cor do texto */
+}
+
+.cart-item span {
+    font-weight: bold; /* Negrito para destacar o texto */
+}
+
+.cart-item a {
+    color: #4A001F; /* Cor para o link */
+    text-decoration: none; /* Remove o sublinhado do link */
+    font-weight: bold; /* Negrito para o link */
+}
+
+.cart-item a:hover {
+    text-decoration: underline; /* Sublinha o link ao passar o mouse */
+}
+
+.product-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.product-info {
+    flex: 1; /* Garante que o texto ocupe o espaço disponível */
+}
+
+.product-image {
+    width: 60px;
+    height: auto;
+    border-radius: 4px;
+    margin-left: 10px; /* Espaçamento entre o texto e a imagem */
+}
+
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Etapas do pagamento -->
+        <div class="steps">
+            <div class="step">
+                <div class="circle">1</div>
+                <div class="step-text">Produtos</div>
+            </div>
+            <div class="step">
+                <div class="circle">2</div>
+                <div class="step-text">Entrega</div>
+            </div>
+            <div class="step active">
+                <div class="circle">3</div>
+                <div class="step-text">Pagamento</div>
+            </div>
+        </div>
+
+        <!-- Formulário de endereço -->
+        <form>
+            <h2>Endereço</h2>
+            <p>Escolha o endereço para entrega</p>
+
+            <div class="form-group">
+                <label for="apelido">Apelido do endereço (Ex: Minha casa)</label>
+                <input type="text" id="apelido" name="apelido">
+            </div>
+
+            <div class="form-group">
+                <label for="cep">CEP *</label>
+                <input type="text" id="cep" name="cep" required>
+            </div>
+
+            <div class="form-group">
+                <label for="endereco">Endereço *</label>
+                <input type="text" id="endereco" name="endereco" required>
+            </div>
+
+            <div class="address-line">
+                <div class="form-group">
+                    <label for="numero">Número *</label>
+                    <input type="text" id="numero" name="numero" required>
+                </div>
+                <div class="form-group">
+                    <label for="complemento">Complemento *</label>
+                    <input type="text" id="complemento" name="complemento">
+                </div>
+
+                <div class="form-group">
+                    <label for="endereco">Bairro *</label>
+                    <input type="text" id="endereco" name="endereco" required>
+                </div>
+            </div>
+
+            <!-- Novo campo de seleção de tipo de endereço -->
+            <div class="form-group">
+                <label for="tipo-endereco">Tipo do Endereço</label>
+                <select id="tipo-endereco" name="tipo-endereco">
+                    <option value="residencial">Residencial</option>
+                    <option value="comercial">Comercial</option>
+                </select>
+            </div>
+            
+        </form>
+
+        <!-- Carrinho e cupom de desconto -->
+        <div class="cart-summary">
+            <h2>Resumo do Pedido</h2>
+            <div class="cart-item">
+                <span>1 Item no Carrinho</span>
+                <a href="#" onclick="toggleProductDetails()">Ver produtos</a>
+            </div>
+
+            <div id="product-details" style="display: none;">
+                <div class="product-container">
+                    <div class="product-info">
+                        <p>Produto: Quebrada de las Flechas Reserva Malbec 2015</p>
+                        <p>Preço: R$ 185,00</p>
+                    </div>
+                    <img src="Imagens/Quebrada de las Flechas Reserva Malbec 2015.png" alt="Imagem do Produto" class="product-image">
+                </div>
+            </div>
+            
+            <div class="coupon">
+                <span>Cupom de desconto</span>
+                <input type="text" id="coupon" placeholder="Inserir Cupom" oninput="applyDiscount()">
+            </div>
+            <div class="totals">
+                <span>Subtotal</span>
+                <span id="subtotal">R$ 185.00</span>
+            </div>
+            <div class="totals">
+                <span>Frete</span>
+                <span id="frete">Ainda não calculado</span>
+            </div>
+            <div class="totals">
+                <strong>Total</strong>
+                <strong id="total">R$ R$ 185.00</strong>
+            </div>
+            <a href="#" class="button" onclick="validateForm()">Continuar Comprando</a>
+        </div>
+    </div>
+
+    <script>
+        // Função para alternar a exibição dos detalhes do produto
+        function toggleProductDetails() {
+            const productDetails = document.getElementById("product-details");
+            productDetails.style.display = productDetails.style.display === "none" ? "block" : "none";
+        }
+
+        // Função para validar o CEP
+        document.getElementById("cep").addEventListener("input", function() {
+            const cep = this.value.replace(/\D/g, "");
+            if (cep.length === 8) {
+                // Simula cálculo do frete
+                document.getElementById("frete").textContent = "R$ 15,00";
+                updateTotal();
+            } else {
+                document.getElementById("frete").textContent = "CEP inválido";
+            }
+        });
+
+        // Função para aplicar o desconto
+        function applyDiscount() {
+            const coupon = document.getElementById("coupon").value.trim().toUpperCase();
+            const subtotalElem = document.getElementById("subtotal");
+            let subtotal = 185.00;
+            let discount = 0;
+
+            if (coupon === "DESCONTO10") {
+                discount = subtotal * 0.1;
+            }
+
+            const newTotal = subtotal - discount + (document.getElementById("frete").textContent.includes("R$") ? 15 : 0);
+            document.getElementById("total").textContent = "R$ " + newTotal.toFixed(2);
+        }
+
+        // Função para atualizar o total
+        function updateTotal() {
+            const subtotal = 185.00;
+            const frete = document.getElementById("frete").textContent.includes("R$") ? 15 : 0;
+            const discount = document.getElementById("coupon").value.trim().toUpperCase() === "DESCONTO10" ? subtotal * 0.1 : 0;
+            const total = subtotal - discount + frete;
+            document.getElementById("total").textContent = "R$ " + total.toFixed(2);
+        }
+
+        const fields = [
+            { id: "cep", errorId: "cep-error" },
+            { id: "endereco", errorId: "endereco-error" },
+            { id: "numero", errorId: "numero-error" }
+        ];
+
+        fields.forEach(field => {
+            const input = document.getElementById(field.id);
+            const errorMessage = document.getElementById(field.errorId);
+
+            if (!input.value.trim()) {
+                errorMessage.style.display = "block"; // Mostra a mensagem de erro
+                allFieldsFilled = false;
+            } else {
+                errorMessage.style.display = "none"; // Esconde a mensagem de erro
+            }
+        });
+
+        if (allFieldsFilled) {
+            alert("Todos os campos obrigatórios foram preenchidos!");
+            // Aqui você pode redirecionar ou executar outra ação
+        }
+    
+
+    </script>
+</body>
+</html>
